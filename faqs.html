@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Transportizy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                        <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                    </svg>
+                </span>
+                <span>Transportizy</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="booking.html" class="nav-link">Booking</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="faqs.html" class="nav-link active">FAQs</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="login-btn" id="loginBtn">Login</button>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="user-name" id="userName" style="display: none;">User</span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="booking.html" class="dropdown-item">My Bookings</a>
+                        <a href="#" class="dropdown-item">Profile Settings</a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Log Out</a>
+                    </div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shared Login/Signup Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="modalClose">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <p class="form-subtitle">Access your bookings and travel preferences</p>
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm">
+                    <h2>Create Account</h2>
+                    <p class="form-subtitle">Join us for seamless travel booking</p>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="signupName" placeholder="John Doe" required autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="signupEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📞</span>
+                            <input type="tel" id="signupPhone" placeholder="+91 98765 43210" required autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupPassword" placeholder="Minimum 6 characters" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="faqs-container-narrow">
+            <div class="section-header-center">
+                <span class="section-label">Help Desk</span>
+                <h1 class="section-title">Frequently Asked Questions</h1>
+                <p class="section-desc center" style="margin-bottom: 2rem;">Find quick answers regarding our booking procedures, baggage allowances, cancellation terms, and cargo dispatch details.</p>
+            </div>
+
+            <!-- Categories -->
+            <div class="faq-categories">
+                <button class="faq-category-btn active" data-filter="all">All FAQs</button>
+                <button class="faq-category-btn" data-filter="booking">Booking</button>
+                <button class="faq-category-btn" data-filter="cancellations">Cancellations</button>
+                <button class="faq-category-btn" data-filter="logistics">Cargo Logistics</button>
+                <button class="faq-category-btn" data-filter="security">Security</button>
+            </div>
+
+            <!-- Accordion FAQ List -->
+            <div class="faq-list">
+                <!-- FAQ 1 -->
+                <div class="faq-item" data-category="booking">
+                    <button class="faq-question-btn">
+                        <span>How do I modify my ticket departure date?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            To reschedule your travel date, log in to your account, head to "My Bookings" in your profile menu, select the active ticket, and click "Reschedule". Rescheduling can be done up to 24 hours prior to departure, subject to a minor rescheduling fee and carrier availability.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item" data-category="booking">
+                    <button class="faq-question-btn">
+                        <span>What is the baggage limit for Airways bookings?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Standard baggage allowances vary by flight class. Economy tickets allow 1 cabin bag (up to 7kg) and 1 check-in bag (up to 20kg). Business and First Class bookings allow up to 2 check-in bags (32kg maximum combined). Extra weight allowances can be purchased during checkout on our booking page.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item" data-category="cancellations">
+                    <button class="faq-question-btn">
+                        <span>How long do refunds take after cancellation?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Once your cancellation request is processed, refunds are immediately dispatched. Depending on your financial institution, the refund will reflect in your bank account or card statement within 5 to 7 business days. A cancellation fee may be deducted depending on how close to departure you cancelled.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item" data-category="logistics">
+                    <button class="faq-question-btn">
+                        <span>Do you provide door-to-door delivery for Cargo shipping?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes, door-to-door pickup and delivery are fully supported for all standard cargo and document packages. When filling out the cargo booking form, simply choose the "Express Courier Door-to-Door" dispatch option, and our logistics agent will arrive at your address for package pickup.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item" data-category="security">
+                    <button class="faq-question-btn">
+                        <span>Is it safe to store my credentials and card data?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. Transportizy utilizes AES-256 standard encryption algorithms to secure all data transmissions. User credentials are encrypted at storage level, and credit/debit card transactions are processed directly by global PCI-DSS certified payment gateways without ever touch-logging on our database.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item" data-category="booking">
+                    <button class="faq-question-btn">
+                        <span>What happens if my flight or train is delayed?</span>
+                        <span class="faq-chevron">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            In case of delay or transit schedule changes, Transportizy will dispatch automated alerts via registered SMS and email immediately. For delays exceeding 3 hours, customers are eligible for free alternative arrangements or a full refund, depending on the operator's service level agreement.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Alert Banner -->
+    <div class="alert-banner" id="alertBanner">
+        <span class="alert-icon" id="alertIcon">✓</span>
+        <span class="alert-message" id="alertMessage">Success notification!</span>
+    </div>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                                <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                            </svg>
+                        </span>
+                        <span>Transportizy</span>
+                    </a>
+                    <p>Your premium gateway to railways, airways, roadways, and cargo transport bookings across the globe.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="booking.html?type=railway">Railway Tickets</a></li>
+                        <li><a href="booking.html?type=airways">Airway Flights</a></li>
+                        <li><a href="booking.html?type=roadways">Roadway Buses</a></li>
+                        <li><a href="booking.html?type=cargo">Cargo Deliveries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal Links</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="cancellation.html">Cancellation Terms</a></li>
+                        <li><a href="contact.html">Support Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Transportizy. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

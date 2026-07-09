@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation Terms - Transportizy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .legal-content-container {
+            padding: 8rem 0 6rem;
+            background-color: var(--light);
+            min-height: calc(100vh - 350px);
+        }
+        .legal-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-card h1 {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        .legal-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        .legal-section {
+            margin-bottom: 2rem;
+        }
+        .legal-section h2 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        .legal-section p, .legal-section ul {
+            color: var(--text-light);
+            font-size: 0.975rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .legal-section ul {
+            padding-left: 1.5rem;
+        }
+        .legal-section li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                        <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                    </svg>
+                </span>
+                <span>Transportizy</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="booking.html" class="nav-link">Booking</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="login-btn" id="loginBtn">Login</button>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="user-name" id="userName" style="display: none;">User</span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="booking.html" class="dropdown-item">My Bookings</a>
+                        <a href="#" class="dropdown-item">Profile Settings</a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Log Out</a>
+                    </div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shared Login/Signup Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="modalClose">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <p class="form-subtitle">Access your bookings and travel preferences</p>
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm">
+                    <h2>Create Account</h2>
+                    <p class="form-subtitle">Join us for seamless travel booking</p>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="signupName" placeholder="John Doe" required autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="signupEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📞</span>
+                            <input type="tel" id="signupPhone" placeholder="+91 98765 43210" required autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupPassword" placeholder="Minimum 6 characters" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="legal-content-container">
+        <div class="container">
+            <div class="legal-card">
+                <h1>Cancellation & Refund Terms</h1>
+                <div class="legal-meta">Last updated: July 9, 2026 | Version 1.1</div>
+                
+                <div class="legal-section">
+                    <h2>1. Cancellation Overview</h2>
+                    <p>At Transportizy, we provide flexible cancellation options for all our transport divisions. Cancellations can be requested by logging in and navigating to your travel profile, or contacting our assistance desk.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>2. Railway Cancellations</h2>
+                    <p>Refund values depend on when the request is logged relative to the departure schedule:</p>
+                    <ul>
+                        <li><strong>More than 48 hours:</strong> 90% refund of the total ticket cost.</li>
+                        <li><strong>Between 24 and 48 hours:</strong> 75% refund of the total ticket cost.</li>
+                        <li><strong>Between 12 and 24 hours:</strong> 50% refund of the total ticket cost.</li>
+                        <li><strong>Less than 12 hours:</strong> Ticket is locked, and no refund is available.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>3. Airways Cancellations</h2>
+                    <p>Flight cancellation rules vary based on specific airline partner terms:</p>
+                    <ul>
+                        <li><strong>More than 24 hours before flight:</strong> Base fare is refundable minus standard agency service charges.</li>
+                        <li><strong>Less than 24 hours before flight:</strong> Flights are considered non-refundable, except for terminal and local government taxes.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>4. Roadways Cancellations</h2>
+                    <p>Bus ticket refund terms are as follows:</p>
+                    <ul>
+                        <li><strong>More than 12 hours before coach departure:</strong> 85% refund of the ticket cost.</li>
+                        <li><strong>Less than 12 hours before coach departure:</strong> No refund is processed.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>5. Cargo Shipping Cancellations</h2>
+                    <p>Cargo dispatch orders can be cancelled with a 100% refund prior to pickup or dispatch departure. Once physical parcels have been collected by our logistics agents and entered the sorting networks, cancellation is disabled.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>6. Refund Processing</h2>
+                    <p>Valid refunds are credited directly back to your original source of payment within 3-5 business days. For mock tickets booked under test scenarios, simulation values are instantly re-credited to your local storage account balance.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared Alert Banner -->
+    <div class="alert-banner" id="alertBanner">
+        <span class="alert-icon" id="alertIcon">✓</span>
+        <span class="alert-message" id="alertMessage">Success notification!</span>
+    </div>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                                <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                            </svg>
+                        </span>
+                        <span>Transportizy</span>
+                    </a>
+                    <p>Your premium gateway to railways, airways, roadways, and cargo transport bookings across the globe.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="booking.html?type=railway">Railway Tickets</a></li>
+                        <li><a href="booking.html?type=airways">Airway Flights</a></li>
+                        <li><a href="booking.html?type=roadways">Roadway Buses</a></li>
+                        <li><a href="booking.html?type=cargo">Cargo Deliveries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal Links</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="cancellation.html">Cancellation Terms</a></li>
+                        <li><a href="contact.html">Support Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Transportizy. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

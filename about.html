@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Transportizy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Shared Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                        <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                    </svg>
+                </span>
+                <span>Transportizy</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="booking.html" class="nav-link">Booking</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="login-btn" id="loginBtn">Login</button>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="user-name" id="userName" style="display: none;">User</span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="booking.html" class="dropdown-item">My Bookings</a>
+                        <a href="#" class="dropdown-item">Profile Settings</a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">Log Out</a>
+                    </div>
+                </div>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shared Login/Signup Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="modalClose">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form class="auth-form active" id="loginForm">
+                    <h2>Welcome Back</h2>
+                    <p class="form-subtitle">Access your bookings and travel preferences</p>
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="loginEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign In</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm">
+                    <h2>Create Account</h2>
+                    <p class="form-subtitle">Join us for seamless travel booking</p>
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="signupName" placeholder="John Doe" required autocomplete="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="signupEmail" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">📞</span>
+                            <input type="tel" id="signupPhone" placeholder="+91 98765 43210" required autocomplete="tel">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupPassword" placeholder="Minimum 6 characters" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Intro Section -->
+        <section class="about-intro">
+            <div class="container about-intro-grid">
+                <div class="about-intro-visual">
+                    <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="320" rx="16" fill="#EFF6FF"/>
+                        <circle cx="200" cy="160" r="100" fill="#2563EB" opacity="0.05"/>
+                        <path d="M50 240 C100 180 300 180 350 240" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M80 270 C120 230 280 230 320 270" stroke="#0D9488" stroke-width="6" stroke-linecap="round"/>
+                        <circle cx="200" cy="110" r="40" fill="#2563EB"/>
+                        <circle cx="200" cy="110" r="16" fill="#FFFFFF"/>
+                    </svg>
+                    <div class="about-intro-badge">
+                        <h4>10+</h4>
+                        <p>Years in Service</p>
+                    </div>
+                </div>
+                <div class="about-intro-content">
+                    <span class="section-label">Our Story</span>
+                    <h2>Connecting People & Businesses Globally</h2>
+                    <p>Established in 2016, Transportizy was born out of a simple vision: to make transit booking stress-free. We realized that travelers had to visit separate, outdated sites to buy train, flight, or bus tickets, and companies struggled to schedule cargo deliveries. We brought them all together on a single high-performance engine.</p>
+                    <p>Today, we serve millions of customers, partnering with state railways, leading airlines, premium bus coach companies, and logistics warehouses to make travels swift, safe, and transparent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-banner">
+            <div class="container stats-grid">
+                <div class="stat-card">
+                    <h3 class="stat-number">5M<span>+</span></h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-number">200<span>+</span></h3>
+                    <p>Cities Covered</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-number">500<span>+</span></h3>
+                    <p>Luxury Fleets Partners</p>
+                </div>
+                <div class="stat-card">
+                    <h3 class="stat-number">24<span>/</span>7</h3>
+                    <p>Live Customer Support</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="features" style="padding: 5rem 0; background: var(--white);">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-label">Core Values</span>
+                    <h2 class="section-title">What Drives Transportizy</h2>
+                    <p class="section-desc center">Our foundational principles guide how we build our software, serve our travelers, and handle worldwide cargo deliveries daily.</p>
+                </div>
+                <div class="features-grid">
+                    <!-- Value 1 -->
+                    <div class="feature-card" style="text-align: center; align-items: center;">
+                        <div class="feature-icon-wrapper" style="background: var(--primary-light); color: var(--primary); border-radius: 50%;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Uncompromised Safety</h3>
+                        <p>We enforce strict verification checks across all partner rail, flight, and coach networks, prioritizing the safety and security of your passengers and cargo above all else.</p>
+                    </div>
+                    <!-- Value 2 -->
+                    <div class="feature-card" style="text-align: center; align-items: center;">
+                        <div class="feature-icon-wrapper" style="background: var(--secondary-light); color: var(--secondary); border-radius: 50%;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Reliability & Speed</h3>
+                        <p>Our high-performance booking engines process ticketing routes instantly, ensuring you get on-time alerts, prompt customer support, and instant reschedules.</p>
+                    </div>
+                    <!-- Value 3 -->
+                    <div class="feature-card" style="text-align: center; align-items: center;">
+                        <div class="feature-icon-wrapper" style="background: #ecfdf5; color: #059669; border-radius: 50%;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 5a5 5 0 0 0-5 5c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5z"></path>
+                            </svg>
+                        </div>
+                        <h3>Green Operations</h3>
+                        <p>We are dedicated to sustainable transit. We offset local carbon emissions by backing eco-friendly rail routes and integrating carbon calculation reports for commercial cargo fleets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-label">Reviews</span>
+                    <h2 class="section-title">What Our Customers Say</h2>
+                    <p class="section-desc center">Real feedback from actual passengers and business managers who rely on us daily.</p>
+                </div>
+                <div class="testimonial-card">
+                    <span class="quote-icon">“</span>
+                    <p class="testimonial-text">Transportizy has changed how our corporate branch travels. I can book flight tickets for our executives, train passes for field staffs, and send large inventory cargo boxes all from the same dashboard interface. Their 24/7 support once resolved a train ticket rescheduling in under five minutes. Highly recommended!</p>
+                    <div class="reviewer-profile">
+                        <span class="reviewer-name">Samantha Vance</span>
+                        <span class="reviewer-title">Operations Director, Apex Corp</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Alert Banner -->
+    <div class="alert-banner" id="alertBanner">
+        <span class="alert-icon" id="alertIcon">✓</span>
+        <span class="alert-message" id="alertMessage">Success notification!</span>
+    </div>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 18H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v6a3 3 0 0 0 3 3z"></path>
+                                <path d="M6 18v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"></path>
+                            </svg>
+                        </span>
+                        <span>Transportizy</span>
+                    </a>
+                    <p>Your premium gateway to railways, airways, roadways, and cargo transport bookings across the globe.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Booking</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="booking.html?type=railway">Railway Tickets</a></li>
+                        <li><a href="booking.html?type=airways">Airway Flights</a></li>
+                        <li><a href="booking.html?type=roadways">Roadway Buses</a></li>
+                        <li><a href="booking.html?type=cargo">Cargo Deliveries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal Links</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="cancellation.html">Cancellation Terms</a></li>
+                        <li><a href="contact.html">Support Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Transportizy. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
